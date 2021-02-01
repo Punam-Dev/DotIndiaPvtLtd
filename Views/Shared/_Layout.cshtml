@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DotIndiaPvtLtd</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/font-awesome/css/fontawesome.css" />
+    <link rel="stylesheet" href="~/font-awesome/css/brands.css" />
+    <link rel="stylesheet" href="~/font-awesome/css/solid.css" />
+    <link rel="stylesheet" href="~/font-awesome/css/regular.css" />
+    <link rel="stylesheet" href="~/font-awesome/css/v4-shims.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-success border-bottom box-shadow mb-3 navy-blue-skin">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DotIndiaPvtLtd</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="Index">Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Work Load
+                            </a>
+                            <div class="dropdown-menu dropdown-p" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Form" asp-action="Create" asp-route-id="">Current Work Load</a>
+                                <a class="dropdown-item" asp-controller="Form" asp-action="Index" asp-route-id="All">All Form</a>
+                                <a class="dropdown-item" asp-controller="Form" asp-action="Index" asp-route-id="Save">Save Form</a>
+                                <a class="dropdown-item" asp-controller="Form" asp-action="Index" asp-route-id="submit">Submit Form</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-controller="Form" asp-action="Query">Query</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-controller="Form" asp-action="Report">Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Agreement</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-warning" href="#">
+                                <i class="fa fa-calendar-alt" aria-hidden="true"></i>
+                                Date: @DateTime.Now.ToString("dd MMM yyyy")
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post" asp-controller="Account" asp-action="LogOut">
+                                <input type="submit" value="Log Out" class="nav-link text-light bg-transparent border-0"/>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-light page-footer">
+        <div class="container text-center">
+            &copy; @DateTime.Now.Year - Copyright: dotindiapvtltd
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="~/datatables.net/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Datatable').DataTable({
+                //fixedHeader: true
+            });
+
+            //var table = $('#example').DataTable({
+            //    responsive: true,
+            //    paging: false
+            //});
+
+            //new $.fn.dataTable.FixedHeader(table);
+        });
+    </script>
+    @*<script src="~/font-awesome/js/fontawesome.min.js"></script>*@
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

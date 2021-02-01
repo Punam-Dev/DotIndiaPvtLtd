@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "font-awesome@5.15.2",
+      "destination": "wwwroot/font-awesome/"
+    },
+    {
+      "library": "datatables.net@1.10.23",
+      "destination": "wwwroot/datatables.net/"
+    }
+  ]
+}
